@@ -25,6 +25,15 @@ pip install -r requirements.txt
 ```
 GPU 지원을 위해서는 CUDA 및 cuDNN과 호환되는 `tensorflow-gpu` 버전을 설치해야 합니다.
 
+## 사용된 데이터셋
+본 연구는 다음 4가지 벤치마크 데이터셋을 사용하여 모델의 성능을 평가했습니다.
+
+*   **MNIST, FashionMNIST, CIFAR-10:** `tf.keras.datasets` API를 통해 불러왔습니다.
+    *   **MNIST:** 0-9 손글씨 숫자로 구성된 28x28 흑백 이미지입니다.
+    *   **FashionMNIST:** 10종류의 패션 아이템으로 구성된 28x28 흑백 이미지입니다.
+    *   **CIFAR-10:** 10개의 사물 클래스로 구성된 32x32 컬러 이미지입니다.
+*   **SVHN (Street View House Numbers):** 실제 거리에서 촬영된 집 번호 숫자 이미지입니다. 스탠포드 대학에서 제공하는 `train_32x32.mat`와 `test_32x32.mat` 파일을 직접 로드하여 사용했습니다.
+
 ## 실험 과정 (Experimental Process)
 
 본 연구는 3단계의 실험 과정으로 구성됩니다.
