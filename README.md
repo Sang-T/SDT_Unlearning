@@ -41,7 +41,12 @@ GPU 지원을 위해서는 CUDA 및 cuDNN과 호환되는 `tensorflow-gpu` 버�
 
 
 #### 하이퍼파라미터 최적화
-`Optuna`를 사용하여 SDT의 성능을 극대화하는 최적의 하이퍼파라미터 조합(`tree_depth`, `learning_rate`, `batch_size` 등)을 탐색했습니다.
+`Optuna`를 사용하여 SDT의 성능을 극대화하는 최적의 하이퍼파라미터 조합(`tree_depth`, `penalty_strength`, `penalty_decay`, `ema_win_size`, `inv_temp`, `learning_rate`, `batch_size`)을 탐색했습니다.
+
+*   **Penalty strength:** 트리의 내부 노드가 한쪽으로만 분기하는 것을 방지하는 정규화 강도입니다. 값이 높을수록 좌/우 분기가 균형을 이루도록 유도하여 트리가 더 다양한 구조를 학습하게 합니다.
+*   **Penalty decay:** 트리의 깊이가 깊어질수록 페널티의 영향을 점진적으로 줄입니다. 이를 통해 얕은 노드는 일반적인 규칙을, 깊은 노드는 세부적인 특징을 학습하도록 만듭니다.
+*   **Ema_win_size:** 미니배치마다 변동하는 노드의 분기 경향을 부드럽게 만들어 학습을 안정화시킵니다. 윈도우 크기가 크면 장기적인 안정성을, 작으면 변화에 대한 빠른 적응을 우선시합니다.
+*   **Inverse temperature:** 내부 노드의 시그모이드(Sigmoid) 함수를 더 날카롭게 만들어 분기 결정을 명확하게 합니다. β 값이 높을수록 분기 확률이 0 또는 1에 가까워져 'Hard' Decision Tree처럼 동작하게 됩니다.
 
 ### 3. 타겟 클래스 언러닝 (Target Class Unlearning)
 학습된 SDT 모델에서 특정 클래스에 대한 정보를 제거하는 언러닝 알고리즘을 적용합니다. 전체 재학습 없이 효율적인 망각을 수행하는 것을 목표로 합니다.
