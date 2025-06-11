@@ -1,0 +1,2 @@
+model_checkpoint_path: "unlearned_cifar10"
+all_model_checkpoint_paths: "unlearned_cifar10"

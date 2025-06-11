@@ -1,0 +1,2 @@
+model_checkpoint_path: "unlearned_fashion_mnist"
+all_model_checkpoint_paths: "unlearned_fashion_mnist"
