@@ -14,7 +14,7 @@
 | [models/utils.py](models/utils.py) | TensorFlow 세션 관리 및 모델 파라미터 시각화를 위한 유틸리티 함수입니다. |
 | [notebooks/](notebooks/) | **실험 코드:**<br>• `MNIST.ipynb`, `FashionMNIST.ipynb`, `CIFAR-10.ipynb`, `SVHN.ipynb`: 각 데이터셋에 대한 개별 실험(교사 학습, 증류, 언러닝)을 수행합니다.<br>• `Test_code.ipynb`: 모든 데이터셋에 대해 타겟 클래스를 제외하고 모델을 처음부터 재학습(Retrain)하는 비교 실험 코드입니다. |
 | [visualize/](visualize/) | **실험을 통해 생성된 최종 결과 시각화 자료 (Pseudo Code, 언러닝 전/후의 트리 분기)가 저장된 폴더입니다.** |
-| [assets/](assets/) | **모델 체크포인트:**<br>각 데이터셋별 최적의 모델 가중치를 저장합니다. 폴더에는 (1) 교사(ConvNet) 모델, (2) 학생(SBDT) 모델, (3) 타겟 클래스를 제거하고 재학습한 모델의 체크포인트가 포함되어 있어 실험 재현을 돕습니다. |
+| [assets/](assets/) | **모델 체크포인트:**<br>각 데이터셋별 최적의 모델 가중치를 저장합니다. 폴더에는 (1) 교사(ConvNet) 모델, (2) 학생(SDT) 모델, (3) 타겟 클래스를 제거하고 재학습한 모델의 체크포인트가 포함되어 있어 실험 재현을 돕습니다. |
 
 ## 요구사항 (Requirements)
 코드는 **Python 3.7+**, **TensorFlow** 환경에서 테스트되었습니다. 하이퍼파라미터 최적화에는 **Optuna**가 사용되었습니다.
